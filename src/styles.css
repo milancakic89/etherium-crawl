@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+.col-1-of-4 {
+  width: 25%;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px 5px;
+}
+
+.col-2-of-4 {
+  width: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px 5px;
+}
+
+.col-3-of-4 {
+  width: 75%;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px 5px;
+}
+
+.col-4-of-4 {
+  width: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px 5px;
+}
