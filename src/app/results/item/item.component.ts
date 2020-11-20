@@ -14,6 +14,7 @@ export class ItemComponent implements OnInit {
   ngOnInit(): void {
   }
   onClickAddress(link) {
+    this.service.fetching.emit(true)
     this.service.storeAddress(link.textContent);
     this.service.searchAddressFromLink.emit(link.textContent);
   }

@@ -1,10 +1,15 @@
 <app-search></app-search>
-<div class="row" *ngIf="blocks.length > 0 || balanceData">
-  <div class="col-2-of-4 border  balance"><span><b>Balance: </b>{{balanceData?.result}}</span></div>
-  <p>Transactions</p>
+<div>
+  <div class="row" *ngIf="blocks.length > 0 || balanceData">
+    <div class="col-2-of-4 border  balance">
+      <span><b>Balance: </b>{{balanceData?.result}}</span>
+    </div>
+    <p>Transactions</p>
+  </div>
 </div>
-<div class="results" *ngIf="blocks.length > 0 || balanceData">
-
+<div *ngIf="fetching && balanceData" class="spinner-wrapper">
+  <p class="my-spinner"></p>
+</div>
+<div class="results">
   <app-item *ngFor="let block of blocks" [block]="block"></app-item>
-
 </div>

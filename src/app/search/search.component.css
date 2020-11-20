@@ -47,3 +47,6 @@ button[disabled] {
 .result__counter {
   font-weight: 700;
 }
+.search{
+  background-color: rgb(250, 250, 250);
+}

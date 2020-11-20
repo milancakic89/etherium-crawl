@@ -9,15 +9,20 @@ import { Service } from '../app.service';
 export class ResultsComponent implements OnInit {
   blocks = [];
   balanceData;
+  fetching = true;
   constructor(private service: Service) { }
 
   ngOnInit(): void {
-    this.service.balanceEmiter.subscribe(data =>{
+    this.service.fetching.subscribe(bool => {
+      this.fetching = bool;
+    })
+    this.service.balanceEmiter.subscribe(data => {
       this.balanceData = data;
+      this.fetching = false;
+
     })
     this.service.dataEmiter.subscribe(data => {
       this.blocks = [...data];
     })
   }
-
 }

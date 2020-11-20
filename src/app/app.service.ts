@@ -7,6 +7,7 @@ export class Service{
   dataEmiter = new EventEmitter();
   balanceEmiter = new EventEmitter();
   searchAddressFromLink = new EventEmitter();
+  fetching = new EventEmitter();
   address = '';
 
   getApi(){

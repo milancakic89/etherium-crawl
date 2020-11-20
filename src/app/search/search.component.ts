@@ -27,6 +27,7 @@ export class SearchComponent implements OnInit {
     private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.service.fetching.emit(true)
     this.API_KEY = this.service.getApi();
     this.service.searchAddressFromLink.subscribe(link => {
       this.address = link;
@@ -36,19 +37,21 @@ export class SearchComponent implements OnInit {
   }
   searchAddress() {
     this.service.storeAddress(this.address);
-    let test = `https://api.etherscan.io/api?module=account&action=txlist&address=${this.address}&startblock=${this.fromBlock}&endblock=${this.toBlock}&sort=asc&apikey=${this.API_KEY}`;
+    let fromBlockToBlock = `https://api.etherscan.io/api?module=account&action=txlist&address=${this.address}&startblock=${this.fromBlock}&endblock=${this.toBlock}&sort=asc&apikey=${this.API_KEY}`;
     let singleAdressBalance = `https://api.etherscan.io/api?module=account&action=balance&address=${this.address}&tag=latest&apikey=${this.API_KEY}`;
-    let startingRange = `https://api.etherscan.io/api?module=account&action=tokentx&address=${this.address}&startblock=${this.fromBlock}&endblock=${this.toBlock}&sort=asc&apikey=${this.API_KEY}`;
+
 
     this.http.get(singleAdressBalance)
       .subscribe((data) => {
-        this.service.balanceEmiter.emit(data)
-        this.http.get(test)
+        this.service.balanceEmiter.emit(data);
+
+        this.http.get(fromBlockToBlock)
           .subscribe((data: { result }) => {
             this.service.dataEmiter.emit(data.result)
             this.results = data.result.length;
-            console.log(data.result)
+            this.service.fetching.emit(false)
           });
+
       })
   }
   searchBlocksByRange(form: NgForm) {
@@ -64,7 +67,17 @@ export class SearchComponent implements OnInit {
       })
   }
   searchBlocksByDate(form: NgForm) {
+    this.service.fetching.emit(true)
+    let fullDate = `${form.value.year}-${form.value.month}-${form.value.day}`;
+    let timeStamp = new Date(fullDate).getTime() / 1000;
+    console.log(timeStamp)
 
+    let address = `https://api.etherscan.io/api?module=block&action=getblocknobytime&timestamp=${timeStamp}&closest=before&apikey=${this.API_KEY}`;
+
+    this.http.get(address)
+      .subscribe((data: { result }) => {
+        this.service.balanceEmiter.emit(data.result);
+      })
   }
 
 

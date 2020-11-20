@@ -1,7 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-button:hover{
+button:hover {
   cursor: pointer;
 }
+
+html,
+body,
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+
 .col-1-of-4 {
   width: 23%;
   margin-right: 2%;
@@ -14,7 +24,7 @@ button:hover{
 }
 
 .col-2-of-4 {
-   width: 48%;
+  width: 48%;
   margin-right: 2%;
   display: inline-block;
   box-sizing: border-box;
@@ -24,7 +34,7 @@ button:hover{
 }
 
 .col-3-of-4 {
-   width: 73%;
+  width: 73%;
   margin-right: 2%;
   display: inline-block;
   box-sizing: border-box;
