@@ -14,12 +14,9 @@ export class ResultsComponent implements OnInit {
   ngOnInit(): void {
     this.service.balanceEmiter.subscribe(data =>{
       this.balanceData = data;
-      console.log(data);
     })
     this.service.dataEmiter.subscribe(data => {
       this.blocks = [...data];
-      let num = 563038723826132778350856;
-      console.log(num / 1000);
     })
   }
 

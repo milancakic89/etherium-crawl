@@ -16,7 +16,6 @@ export class SearchComponent implements OnInit {
   month = 10;
   day = 19;
 
-  testing = 'https://api.etherscan.io/api?module=block&action=getblockreward&blockno=352145&apikey=YourApiKeyToken'
   fromBlock = 9000000;
   toBlock = 9900000;
   results = 0;
@@ -29,18 +28,26 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.API_KEY = this.service.getApi();
+    this.service.searchAddressFromLink.subscribe(link => {
+      this.address = link;
+      this.searchAddress();
+
+    })
   }
-  searchAddress(form: NgForm) {
-    let address2 = `https://api.etherscan.io/api?module=block&action=getblockreward&blockno=352145&apikey=${this.API_KEY}`;
+  searchAddress() {
+    this.service.storeAddress(this.address);
+    let test = `https://api.etherscan.io/api?module=account&action=txlist&address=${this.address}&startblock=${this.fromBlock}&endblock=${this.toBlock}&sort=asc&apikey=${this.API_KEY}`;
     let singleAdressBalance = `https://api.etherscan.io/api?module=account&action=balance&address=${this.address}&tag=latest&apikey=${this.API_KEY}`;
-    let addressRange = `https://api.etherscan.io/api?module=account&action=tokentx&address=${this.address}&startblock=${this.fromBlock}&endblock=${this.toBlock}&sort=asc&apikey=${this.API_KEY}`;
+    let startingRange = `https://api.etherscan.io/api?module=account&action=tokentx&address=${this.address}&startblock=${this.fromBlock}&endblock=${this.toBlock}&sort=asc&apikey=${this.API_KEY}`;
+
     this.http.get(singleAdressBalance)
       .subscribe((data) => {
         this.service.balanceEmiter.emit(data)
-        this.http.get(addressRange)
+        this.http.get(test)
           .subscribe((data: { result }) => {
             this.service.dataEmiter.emit(data.result)
             this.results = data.result.length;
+            console.log(data.result)
           });
       })
   }
@@ -59,6 +66,7 @@ export class SearchComponent implements OnInit {
   searchBlocksByDate(form: NgForm) {
 
   }
+
 
 
 }

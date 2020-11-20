@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import { Service } from 'src/app/app.service';
 
 @Component({
   selector: 'app-item',
@@ -8,9 +9,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ItemComponent implements OnInit {
   @Input() block;
 
-  constructor() { }
+  constructor(private service: Service) { }
 
   ngOnInit(): void {
   }
-
+  onClickAddress(link) {
+    this.service.storeAddress(link.textContent);
+    this.service.searchAddressFromLink.emit(link.textContent);
+  }
 }

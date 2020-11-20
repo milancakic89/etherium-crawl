@@ -9,5 +9,10 @@ a {
 }
 
 .row {
-  border: 1px solid rgba(204, 204, 204, 0.205);
+  border: 1px solid rgba(204, 204, 204, 0.105);
+}
+
+.item-card {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
 }

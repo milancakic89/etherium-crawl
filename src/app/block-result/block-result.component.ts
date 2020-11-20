@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Service } from '../app.service';
 
 @Component({
   selector: 'app-block-result',
@@ -7,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlockResultComponent implements OnInit {
 
-singleBlock = "https://api.etherscan.io/api?module=account&action=balance&address=0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae&tag=latest&apikey=YourApiKeyToken"
-  constructor() { }
+  address = '';
+  API_KEY = ""
+  constructor(private http: HttpClient,
+    private service: Service) { }
 
   ngOnInit(): void {
+    this.address = this.service.getAddress();
+    this.API_KEY = this.service.getApi();
+    let singleBlock = `https://api.etherscan.io/api?module=account&action=balance&address=${this.address}&tag=latest&apikey=${this.API_KEY}`;
+    this.http.get(singleBlock)
+      .subscribe(data =>
+        console.log(data))
   }
 
 }

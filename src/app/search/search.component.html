@@ -1,6 +1,6 @@
 <div class="search">
   <div class="col-4-of-4">
-    <form (ngSubmit)="searchAddress(f)" #f="ngForm">
+    <form (ngSubmit)="searchAddress()" #f="ngForm">
       <input type="text" class="input__address" name="address" placeholder="Wallet Address" [(ngModel)]="address"
         required>
       <button class="button" type="submit" [disabled]="!f.valid" value="GO">GO</button>
@@ -14,7 +14,6 @@
       <button class="button" type="submit" [disabled]="!t.valid">GO</button>
     </form>
   </div>
-
   <div class="col-2-of-4">
     <form (ngSubmit)="searchBlocksByDate(y)" #y="ngForm">
       <label>Search by date</label><br>
@@ -25,5 +24,4 @@
     </form>
   </div>
   <p class="result__counter">Results ({{results}})</p>
-
 </div>

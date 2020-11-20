@@ -1,6 +1,16 @@
-<div class="row">
-  <div class="col-1-of-4 item"><a routerLink="block/{{block.blockNumber}}">{{block.blockNumber}}</a></div>
-  <div class="col-1-of-4 item"><span>{{block.from}}</span></div>
-  <div class="col-1-of-4 item"><span>{{block.to}}</span></div>
-  <div class="col-1-of-4 item"><span>{{block.value}}</span></div>
+<div class="item-card">
+  <div class="row">
+    <div class="col-1-of-4 item"><span>BK.No {{block.blockNumber}}</span></div>
+    <div class="col-1-of-4 item"><span>Gas Used: {{block.gasUsed}}</span></div>
+    <div class="col-1-of-4 item"><span>from: <a href="#" (click)="onClickAddress(linkFrom)"
+          #linkFrom>{{block.from}}</a></span></div>
+    <div class="col-1-of-4 item"><span>value: {{block.value}}</span></div>
+  </div>
+  <div class="row">
+    <div class="col-1-of-4 item"><span>Transaction Index: {{block.transactionIndex}}</span></div>
+    <div class="col-1-of-4 item"><span>Gas: {{block.gas}}</span></div>
+    <div class="col-1-of-4 item"><span>to: <a href="#" (click)="onClickAddress(linkTo)" #linkTo>{{block.to}}</a></span>
+    </div>
+    <div class="col-1-of-4 item"><span>timeStamp: {{block.timeStamp}}</span></div>
+  </div>
 </div>

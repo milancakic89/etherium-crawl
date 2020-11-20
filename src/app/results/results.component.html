@@ -1,15 +1,10 @@
-<div class="results">
-  <div class="row">
-    <div class="col-2-of-4"><span>Balance: {{balanceData?.result}}</span></div>
-  </div>
+<app-search></app-search>
+<div class="row" *ngIf="blocks.length > 0 || balanceData">
+  <div class="col-2-of-4 border  balance"><span><b>Balance: </b>{{balanceData?.result}}</span></div>
   <p>Transactions</p>
-  <div class="sticky">
-    <div class="row sticky">
-      <div class="col-1-of-4"><a href="#">Block Number</a></div>
-      <div class="col-1-of-4"><span>From</span></div>
-      <div class="col-1-of-4"><span>To</span></div>
-      <div class="col-1-of-4"><span>Value</span></div>
-    </div>
-    <app-item *ngFor="let block of blocks" [block]="block"></app-item>
-  </div>
+</div>
+<div class="results" *ngIf="blocks.length > 0 || balanceData">
+
+  <app-item *ngFor="let block of blocks" [block]="block"></app-item>
+
 </div>
