@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-1-of-4"><a href="#">Block Number</a></div>
-  <div class="col-1-of-4"><span>Block Number</span></div>
-  <div class="col-1-of-4"><span>Block Number</span></div>
-  <div class="col-1-of-4"><span>Block Number</span></div>
+  <div class="col-1-of-4 item"><a routerLink="block/{{block.blockNumber}}">{{block.blockNumber}}</a></div>
+  <div class="col-1-of-4 item"><span>{{block.from}}</span></div>
+  <div class="col-1-of-4 item"><span>{{block.to}}</span></div>
+  <div class="col-1-of-4 item"><span>{{block.value}}</span></div>
 </div>

@@ -1,9 +1,29 @@
 <div class="search">
-  <div class="col-3-of-4">
-    <input type="text" class="input__address">
+  <div class="col-4-of-4">
+    <form (ngSubmit)="searchAddress(f)" #f="ngForm">
+      <input type="text" class="input__address" name="address" placeholder="Wallet Address" [(ngModel)]="address"
+        required>
+      <button class="button" type="submit" [disabled]="!f.valid" value="GO">GO</button>
+    </form>
   </div>
-  <div class="col-1-of-4">
-    <button class="button">Find by Adress</button>
+  <div class="col-2-of-4">
+    <form (ngSubmit)="searchBlocksByRange(t)" #t="ngForm">
+      <label>Search by block range</label><br>
+      <input type="number" class="from" placeholder="from" name="fromBlock" ngModel required>
+      <input type="number" class="from" placeholder="to" name="toBlock" ngModel required>
+      <button class="button" type="submit" [disabled]="!t.valid">GO</button>
+    </form>
   </div>
+
+  <div class="col-2-of-4">
+    <form (ngSubmit)="searchBlocksByDate(y)" #y="ngForm">
+      <label>Search by date</label><br>
+      <input type="number" class="year" placeholder="YYYY" name="year" ngModel maxlength="4" required>
+      <input type="number" class="month" placeholder="MM" name="month" ngModel maxlength="2" required>
+      <input type="number" class="day" placeholder="DD" name="day" ngModel maxlength="2" required>
+      <button class="button" type="submit" [disabled]="!y.valid">GO</button>
+    </form>
+  </div>
+  <p class="result__counter">Results ({{results}})</p>
 
 </div>

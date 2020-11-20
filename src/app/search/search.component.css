@@ -1,9 +1,49 @@
 .input__address {
-  width: 100%;
+  width: 50%;
   height: 40px;
+  border: 1px solid rgba(204, 204, 204, 0.205);
+  border-radius: 4px;
+  padding: 0px 10px;
+  font-size: 16px;
+}
+
+.input__address:focus {
+  outline: 1px solid rgba(151, 213, 255, 0.705);
+  border-radius: 4px;
+}
+
+.year,
+.month,
+.day {
+  padding: 0px 10px;
+  height: 40px;
+  width: 50px;
 }
 
 .button {
-  margin-left: 20px;
-  height: 43px;
+  height: 42px;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 5px;
+  margin-top: -5px !important;
+  border-radius: 3px;
+  background-color: rgb(54, 104, 241);
+  color: #fff;
+}
+
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.from {
+  padding: 0px 10px;
+  height: 40px;
+  width: 80px;
+}
+
+.result__counter {
+  font-weight: 700;
 }
