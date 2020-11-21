@@ -9,10 +9,23 @@ a {
 }
 
 .row {
-  border: 1px solid rgba(204, 204, 204, 0.105);
+  border: 1px solid rgba(204, 204, 204, 0.08);
 }
 
 .item-card {
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 3px;
+}
+
+.block {
+  background-color: rgba(255, 68, 0, 0.12);
+  font-weight: 900;
+  clip-path: polygon(0% 0%, 100% 0%, 90% 50%, 100% 100%, 0% 100%);
+}
+
+.block-v {
+  background-color: rgba(255, 68, 0, 0.12);
+  font-weight: 900;
+  padding-left: 25px;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 5% 50%);
 }

@@ -12,6 +12,7 @@ export class ItemComponent implements OnInit {
   constructor(private service: Service) { }
 
   ngOnInit(): void {
+    console.log(this.block.value / 1000);
   }
   onClickAddress(link) {
     this.service.fetching.emit(true)

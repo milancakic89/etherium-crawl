@@ -16,8 +16,11 @@ export class ResultsComponent implements OnInit {
     this.service.fetching.subscribe(bool => {
       this.fetching = bool;
     })
-    this.service.balanceEmiter.subscribe(data => {
+    this.service.balanceEmiter.subscribe((data) => {
+      this.fetching = true;
       this.balanceData = data;
+      console.log('balance data')
+      console.log(this.balanceData)
       this.fetching = false;
 
     })

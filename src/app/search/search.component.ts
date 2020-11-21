@@ -21,6 +21,8 @@ export class SearchComponent implements OnInit {
   results = 0;
   API_KEY: string;
 
+  timeStampBalance = 0;
+
 
 
   constructor(private service: Service,
@@ -76,7 +78,8 @@ export class SearchComponent implements OnInit {
 
     this.http.get(address)
       .subscribe((data: { result }) => {
-        this.service.balanceEmiter.emit(data.result);
+        this.service.balanceEmiter.emit(data);
+        this.timeStampBalance = data.result;
       })
   }
 
