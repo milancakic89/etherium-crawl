@@ -2,7 +2,7 @@
 
 Displaying ETH from given address<br/>
 Showing balance by given date<br/>
-Displaying block by block range<br/>
+Displaying blocks by block range<br/>
 
 ## Instruction
 
