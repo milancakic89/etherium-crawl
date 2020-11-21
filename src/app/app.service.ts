@@ -1,8 +1,8 @@
 import { EventEmitter } from '@angular/core';
 
-export class Service{
+export class Service {
 
-//should be in environment variable .env
+  //its here just for test application, should be in environment variable
   API_KEY = 'GSZUEIZJN94RM48T316HGD4T48INK3NDRY';
   dataEmiter = new EventEmitter();
   balanceEmiter = new EventEmitter();
@@ -10,13 +10,13 @@ export class Service{
   fetching = new EventEmitter();
   address = '';
 
-  getApi(){
+  getApi() {
     return this.API_KEY;
   }
-  storeAddress(address: string){
+  storeAddress(address: string) {
     this.address = address;
   }
-  getAddress(){
+  getAddress() {
     return this.address;
   }
 
