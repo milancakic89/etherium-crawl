@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class SearchComponent implements OnInit {
 
   address = '0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae';
+  token = '';
 
   year = 2020;
   month = 10;
@@ -63,8 +64,6 @@ export class SearchComponent implements OnInit {
 
     this.http.get(addressRange)
       .subscribe((data: { result }) => {
-        this.service.dataEmiter.emit(data.result)
-        console.log(data.result)
         this.results = data.result.length;
       })
   }
@@ -72,7 +71,6 @@ export class SearchComponent implements OnInit {
     this.service.fetching.emit(true)
     let fullDate = `${form.value.year}-${form.value.month}-${form.value.day}`;
     let timeStamp = new Date(fullDate).getTime() / 1000;
-    console.log(timeStamp)
 
     let address = `https://api.etherscan.io/api?module=block&action=getblocknobytime&timestamp=${timeStamp}&closest=before&apikey=${this.API_KEY}`;
 
@@ -82,7 +80,5 @@ export class SearchComponent implements OnInit {
         this.timeStampBalance = data.result;
       })
   }
-
-
-
+ 
 }

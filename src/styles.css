@@ -3,6 +3,12 @@ button:hover {
   cursor: pointer;
 }
 
+body {
+  background-color: rgb(253, 84, 23);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 html,
 body,
 * {
@@ -11,7 +17,15 @@ body,
   margin: 0;
 }
 
+.button:hover {
+  transition: all 0.2s;
+  transform: scale(1.1);
+}
 
+.button:active {
+  transition: all 0.1s;
+  transform: scale(0.8);
+}
 
 .col-1-of-4 {
   width: 23%;

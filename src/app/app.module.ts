@@ -8,10 +8,9 @@ import { ResultsComponent } from './results/results.component';
 import { ItemComponent } from './results/item/item.component';
 import { Service } from './app.service';
 import { RouterModule, Routes } from '@angular/router';
-import { BlockResultComponent } from './block-result/block-result.component';
 
 const routes: Routes = [
-  { path: 'block/:id', component: BlockResultComponent },
+  { path: ':id', component: SearchComponent },
   { path: '', component: ResultsComponent }
 
 ]
@@ -21,8 +20,7 @@ const routes: Routes = [
     AppComponent,
     SearchComponent,
     ResultsComponent,
-    ItemComponent,
-    BlockResultComponent
+    ItemComponent
   ],
   imports: [
     BrowserModule,

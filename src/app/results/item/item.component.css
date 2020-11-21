@@ -18,7 +18,7 @@ a {
 }
 
 .block {
-  background-color: rgba(255, 68, 0, 0.12);
+  background-color: rgba(0, 110, 255, 0.12);
   font-weight: 900;
   clip-path: polygon(0% 0%, 100% 0%, 90% 50%, 100% 100%, 0% 100%);
 }

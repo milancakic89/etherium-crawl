@@ -6,14 +6,11 @@ import { Service } from 'src/app/app.service';
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.css']
 })
-export class ItemComponent implements OnInit {
+export class ItemComponent {
   @Input() block;
 
   constructor(private service: Service) { }
 
-  ngOnInit(): void {
-    console.log(this.block.value / 1000);
-  }
   onClickAddress(link) {
     this.service.fetching.emit(true)
     this.service.storeAddress(link.textContent);

@@ -19,8 +19,6 @@ export class ResultsComponent implements OnInit {
     this.service.balanceEmiter.subscribe((data) => {
       this.fetching = true;
       this.balanceData = data;
-      console.log('balance data')
-      console.log(this.balanceData)
       this.fetching = false;
 
     })
